@@ -1,0 +1,22 @@
+{
+  "name": "node_first",
+  "version": "1.0.0",
+  "description": "Node first by Vladilen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "Node"
+  ],
+  "author": "Pasha147 <pavel147223@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
