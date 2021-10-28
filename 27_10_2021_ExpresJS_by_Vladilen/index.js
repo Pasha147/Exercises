@@ -7,6 +7,8 @@ import path from "path";
 //если не дописать расширение js работать не будет
 import { requestTime, logger } from "./middlewares.js";
 
+import serverRoutes from "./routes/servers.js";
+
 //используется синтаксис с import а не с require
 // поэтому переменную __dirname получаем по другому
 const __dirname = path.resolve();
@@ -20,14 +22,14 @@ const app = express();
 
 //получаем и устанавливаем значения переменных
 app.set("view engine", "ejs");
-console.log(app.get("view engine"));
+// console.log(app.get("view engine"));
 
 //для работы шаблонизатора нужно все файлы складывать в спец прапке
 //лежит в переменной views
 // console.log(app.get("views"));
 //ее можно изменить
 app.set("views", path.resolve(__dirname, "ejs"));
-console.log(app.get("views"));
+// console.log(app.get("views"));
 
 //концепт middlewear
 //представляет из себя функции которые можеп по разному комбинировать
@@ -38,9 +40,15 @@ console.log(app.get("views"));
 //автоматом ищет в static
 app.use(express.static(path.resolve(__dirname, "static")));
 
+//для того чтоб експресс научить работать с json
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 //для использования миддлвея прописываем
 app.use(requestTime); //функция не вызывается а передается
 app.use(logger);
+
+app.use(serverRoutes);
 
 //если есть в статик индекс то загрузится он
 app.get("/", (req, res) => {
