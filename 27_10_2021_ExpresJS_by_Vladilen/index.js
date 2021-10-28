@@ -18,6 +18,17 @@ const PORT = process.env.PORT ?? 3000;
 // по правилам экспресса нужно проинициализировать приложение
 const app = express();
 
+//получаем и устанавливаем значения переменных
+app.set("view engine", "ejs");
+console.log(app.get("view engine"));
+
+//для работы шаблонизатора нужно все файлы складывать в спец прапке
+//лежит в переменной views
+// console.log(app.get("views"));
+//ее можно изменить
+app.set("views", path.resolve(__dirname, "ejs"));
+console.log(app.get("views"));
+
 //концепт middlewear
 //представляет из себя функции которые можеп по разному комбинировать
 //их можно создавать и добавлять в экспресс
@@ -30,6 +41,16 @@ app.use(express.static(path.resolve(__dirname, "static")));
 //для использования миддлвея прописываем
 app.use(requestTime); //функция не вызывается а передается
 app.use(logger);
+
+//если есть в статик индекс то загрузится он
+app.get("/", (req, res) => {
+  //путь и папка уже прописана выше  app.set("views", path.resolve(__dirname, "ejs"));
+  res.render("index", { title: "Main page", active: "main" });
+});
+
+app.get("/features", (req, res) => {
+  res.render("features", { title: "Features page", active: "features" });
+});
 
 //23:45 после создания static удаляем
 /*
@@ -53,10 +74,10 @@ app.get("/", (req, res) => {
 });*/
 
 //21:30 обработка пути download
-app.get("/download", (req, res) => {
-  console.log("ReqTime>>", req.requestTime);
-  res.download(path.resolve(__dirname, "static", "index.html"));
-});
+// app.get("/download", (req, res) => {
+//   console.log("ReqTime>>", req.requestTime);
+//   res.download(path.resolve(__dirname, "static", "index.html"));
+// });
 
 //метод который запускает сервер (базовый веб сервер)
 app.listen(PORT, () => {
