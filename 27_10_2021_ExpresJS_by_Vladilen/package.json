@@ -1,18 +1,19 @@
 {
-  "name": "27_10_2021_ExpresJS_by_Vladilen",
+  "name": "27_10_2021_expresjs_by_vladilen",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve":"nodemon index",
+    "serve": "nodemon index",
     "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
