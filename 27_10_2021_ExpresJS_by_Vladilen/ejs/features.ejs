@@ -20,7 +20,11 @@
           <span class="visually-hidden">Loading...</span>
         </div>
         <ul class="list-group" v-else>
-          <li class="list-group-item" v-for="server in servers">
+          <li
+            class="list-group-item"
+            v-for="server in servers"
+            @click="remove(server.id)"
+          >
             <!-- это синтаксис вю -->
             {{ server.name }}
             <strong>{{ server.status }}</strong>

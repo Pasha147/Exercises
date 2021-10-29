@@ -13,5 +13,16 @@ export const getAll = (req, res) => {
 export const create = (req, res) => {
   // когда создаем что то возвращаем статус 201
   console.log("req.body>>", req.body);
-  res.status(201).json({});
+  const newServer = {
+    id: Date.now(),
+    ...req.body,
+  };
+  servers.push(newServer);
+  res.status(201).json({ newServer });
+};
+
+export const remove = (req, res) => {
+  console.log("ID:", req.params.id);
+  servers = servers.filter((s) => s.id !== req.params.id);
+  res.json({ message: "Server has been removed" });
 };

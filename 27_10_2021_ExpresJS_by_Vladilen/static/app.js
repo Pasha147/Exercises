@@ -22,6 +22,12 @@ const App = {
       this.name = "";
       const newServer = await res.json();
       console.log("newServer>>", newServer);
+      this.servers.push(newServer);
+    },
+
+    async remove(id) {
+      await fetch(`/api/server/${id}`, { method: "DELETE" });
+      this.servers = this.servers.filter((s) => s.id !== id);
     },
   },
 
