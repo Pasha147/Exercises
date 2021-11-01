@@ -1,0 +1,23 @@
+{
+  "name": "rest",
+  "version": "1.0.0",
+  "description": "Rest API",
+  "main": "app.js",
+  "scripts": {
+    "start":"node app.js",
+    "dev":"nodemon app.js",
+    "test": "js rest api node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Pasha147 <pasha147223@gmail.com>"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
