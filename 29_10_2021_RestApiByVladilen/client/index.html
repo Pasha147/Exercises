@@ -11,9 +11,15 @@
       crossorigin="anonymous"
     />
     <title>Rest API</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <div class="container pt-3" id="app">
+    <!-- v-cloak если приложение не готово, не нужно показывать данный блок -->
+    <div class="container pt-3" id="app" v-cloak>
       <h1>REST API</h1>
 
       <form class="form-inline mb-3 row" @submit.prevent="createContact">
@@ -35,17 +41,43 @@
             v-model="form.value"
           />
         </div>
-        <button class="btn btn-primary col-auto" type="submit">Создать</button>
+        <button
+          class="btn btn-primary col-auto"
+          type="submit"
+          :disabled="!canCreate"
+        >
+          Создать
+        </button>
       </form>
 
-      <div class="card mb-3" v-for="contact in contacts">
-        <div class="card-body">
-          <h5 class="card-title">{{contact.name}}</h5>
-          <p class="card-text">{{contact.value}}</p>
-          <button class="btn btn-primary">Отметить</button>
-          <button class="btn btn-danger">Удалить</button>
+      <div v-if="loading">
+        <loader></loader>
+      </div>
+
+      <div v-else-if="contacts.length">
+        <div class="card mb-3" v-for="contact in contacts">
+          <div class="card-body">
+            <h5
+              class="card-title"
+              :style="{color: contact.marked ? 'red' : 'black'}"
+            >
+              {{contact.name}}
+            </h5>
+            <p class="card-text">{{contact.value}}</p>
+            <button
+              class="btn btn-primary"
+              @click="markContact(contact.id)"
+              :disabled="contact.marked"
+            >
+              Отметить
+            </button>
+            <button class="btn btn-danger" @click="removeContact(contact.id)">
+              Удалить
+            </button>
+          </div>
         </div>
       </div>
+      <p v-else>No contacts</p>
     </div>
 
     <script type="module" src="frontend.js"></script>
