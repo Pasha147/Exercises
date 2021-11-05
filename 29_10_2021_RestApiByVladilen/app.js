@@ -6,7 +6,7 @@ const app = express(); //создается приложение
 
 let CONTACTS = [{ id: v4(), name: "Pasha", value: "123", marked: false }];
 
-//для работы с json
+//для работы с json без него не видно тело ответа
 app.use(express.json());
 
 //GET

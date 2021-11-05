@@ -1,19 +1,31 @@
 async function f1() {
   const id = 5;
-  const resp = await request(`http://localhost:3000/api/data`);
-  console.log("front resp e:>>", resp);
+  //   const url = `https://myserverpf.herokuapp.com/api/data`;
+  const url = `http://localhost:3000/api/data`;
+
+  const resp = await request(url);
+  console.log("front GET resp e:>>", resp);
 }
-f1();
+// f1();
+
+async function post() {
+  const id = 6;
+  //   const url = `http://localhost:3000/api/data`;
+  const url = `https://myserverpf.herokuapp.com/api/data`;
+
+  const data = { a: "assss", b: "BAAAA" };
+  const resp = await request(url, "POST", data);
+  console.log("resp-->", resp);
+}
+
+post();
 
 async function request(url, method = "GET", data = null) {
   try {
-    const headers = {};
+    let headers = {};
     let body;
     if (data) {
-      headers = {
-        "Content-Type": "application/json",
-        // "API-Key": "secret",
-      };
+      headers["Content-Type"] = "application/json";
       body = JSON.stringify(data);
     }
 
@@ -21,7 +33,8 @@ async function request(url, method = "GET", data = null) {
       method,
       headers,
       body,
-      // mode: "cors",
+      //   mode: "cors",
+      //   credentials: "include",
     });
     return await response.json();
   } catch (error) {
