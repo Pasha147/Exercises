@@ -1,5 +1,11 @@
 <div class="card">
-  <h2>{{ title }}</h2>
+  <h2
+    [ngStyle]="{
+      color: title.length < 5 ? 'black' : 'green'
+    }"
+  >
+    {{ title }}
+  </h2>
   <p>
     {{ text }}
   </p>
@@ -9,5 +15,21 @@
   <p>{{ getInfo() }}</p>
   <div class="icon">
     <img [src]="imgUrl" />
+  </div>
+  <div>
+    <button (click)="changeTitle()">Change title</button>
+    <button (click)="title = 'Inline title'">Change title2</button>
+  </div>
+  <div>
+    <!-- <input type="text" (input)="inputHandler($event)" [value]="title" /> -->
+    <input
+      type="text"
+      #myInput
+      (input)="inputHandler(myInput.value)"
+      [value]="title"
+    />
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="title" (ngModelChange)="chageHandler()" />
   </div>
 </div>
