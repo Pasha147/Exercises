@@ -1,5 +1,6 @@
 import { PathLocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Card} from '../app.component';
 
 @Component({
   selector: 'app-card',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
   // interpolation:['{{','}}']
 })
 export class CardComponent implements OnInit {
+@Input() card: Card = {}
+@Input() index: number=0;
+
   title = 'My Card Title';
   text = 'This is my text';
   number = 42;
+  textColor: string = '';
+  cardDate: Date= new Date()
+
   obj = { name: 'Pasha', age: 43 };
 
   getInfo() {
@@ -25,14 +32,13 @@ export class CardComponent implements OnInit {
   imgUrl = './assets/123.png';
 
   changeTitle() {
-    this.title = 'Has been changed';
+    this.card.title = 'Has been changed';
   }
   inputHandler(value: any) {
     //   const value=event.target.value
-      this.title=value
+    this.title = value;
   }
-  chageHandler(){
-      console.log(this.title);
-      
+  chageHandler() {
+    console.log(this.title);
   }
 }

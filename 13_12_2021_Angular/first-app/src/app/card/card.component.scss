@@ -14,4 +14,16 @@
       height: 100%;
     }
   }
+  .text {
+    font-size: 1.5rem;
+    &.blue {
+      color: blue;
+    }
+    &.green {
+      color: green;
+    }
+    &.red {
+      color: red;
+    }
+  }
 }
