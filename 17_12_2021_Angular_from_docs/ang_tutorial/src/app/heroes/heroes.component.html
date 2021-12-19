@@ -16,15 +16,11 @@
     {{ hero.name }}
   </li>
 </ul>
-
-<div *ngIf="selectedHero; else elseBlock">
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div><span>id:</span> {{ selectedHero.id }}</div>
-  <div>
-    <label for="hero-name">Hero name:</label>
-    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name" />
-  </div>
-</div>
+<hr />
+<app-hero-detail
+  *ngIf="selectedHero; else elseBlock"
+  [hero]="selectedHero"
+></app-hero-detail>
 <ng-template #elseBlock>
   <p>No selected Hero</p>
 </ng-template>
