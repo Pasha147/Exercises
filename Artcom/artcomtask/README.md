@@ -1,27 +1,22 @@
 # Artcomtask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
+### testTask
 
-## Development server
+ACVK Angular4 Test Task
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Make a new Angular application consisting of 1 component and 1 service.
+- The service should be used to to receive data from the DATA.json file. (included in this repo)
+- In component you need request data using the service and display on page 2 blocks with the same size, half of the screen each.
+- In the first block need create a table with all elements received from service should be displayed. The table displays the value of the "Name" field for each object.
+- In the second block need create a table which will displayed all the data about the properties of the selected element in the first block, in the form: property name and - property value (if the property value === null display the text "it's unknown").
+- Information in the second block is displayed only after selecting an item in the first block.
+- The information in the blocks should be displayed using the angular structural directives.
+- Block number two can be closed using the "Close" button, which should be located in the lower right corner of the second block.
 
-## Code scaffolding
+You can use the UI components library to improve the visual display of the task result
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+My comments
+- В четвертом пункте: The table displays the value of the "Name" field for each object. В объектах нет поля "Name". Я отобразил поле "ProductId". Может я что то не то понял, могу переделать.
+- Стили почти не добавлял но учел то что было в задании и немного добавил от себя, я так понял это не главное, почти о них не идет речь.
+- Json загружается локально но с использованием   HttpClient я так понял его в принципе нужно получать с сервера, знаю как это сделать, если что.
