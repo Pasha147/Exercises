@@ -17,10 +17,27 @@ export class FirstComponentComponent implements OnInit {
   }
 
   data: Item[] = [];
-  curItem: any = false;
+  curItem: string[] = [];
+  close = false;
 
   handleClick(ProductId: number) {
+    this.curItem = [];
+    this.close = false;
     let curInd = this.data.findIndex((i) => ProductId === i.ProductId);
-    this.curItem = this.data[curInd];
+    let curIt: any = {};
+    curIt = { ...this.data[curInd] };
+    let str: string[] = [];
+
+    for (let key in curIt) {
+      if (curIt[key] === null) {
+        this.curItem.push(`it's unknown`);
+      } else {
+        this.curItem.push(`${key}: ${curIt[key]}`);
+      }
+    }
+  }
+
+  closeBtn(): void {
+    this.close = true;
   }
 }

@@ -5,29 +5,11 @@
     *ngFor="let item of this.data"
   >
     <p>ProductId: {{ item.ProductId }}</p>
-
-    <!-- <p>ColorIdx: {{ item.ColorIdx }}</p>
-    <p>ProductCode:{{ item.ProductCode }}</p>
-    <p>ProductDescription:{{ item.ProductDescription }}</p>
-    <p>Price:{{ item.Price }}</p>
-    <p>VoDatum:{{ item.VoDatum }}</p>
-    <p>IsHeavy:{{ item.IsHeavy }}</p>
-    <p>RestrictedLands:{{ item.RestrictedLands }}</p>
-    <p>IsFsk:{{ item.IsFsk }}</p>
-    <p>IsOrdergruppeC:{{ item.IsOrdergruppeC }}</p> -->
   </div>
 </div>
-<div class="secondBlock">
-  <div *ngIf="this.curItem">
-    <p>ProductId: {{ this.curItem.ProductId }}</p>
-    <p>ColorIdx: {{ this.curItem.ColorIdx }}</p>
-    <p>ProductCode:{{ this.curItem.ProductCode }}</p>
-    <p>ProductDescription:{{ this.curItem.ProductDescription }}</p>
-    <p>Price:{{ this.curItem.Price }}</p>
-    <p>VoDatum:{{ this.curItem.VoDatum }}</p>
-    <p>IsHeavy:{{ this.curItem.IsHeavy }}</p>
-    <p>RestrictedLands:{{ this.curItem.RestrictedLands }}</p>
-    <p>IsFsk:{{ this.curItem.IsFsk }}</p>
-    <p>IsOrdergruppeC:{{ this.curItem.IsOrdergruppeC }}</p>
+<div class="secondBlock" [hidden]="this.close">
+  <div *ngIf="this.curItem.length">
+    <p *ngFor="let i of this.curItem">{{ i }}</p>
   </div>
+  <button class="closeBtn" (click)="closeBtn()">Close</button>
 </div>

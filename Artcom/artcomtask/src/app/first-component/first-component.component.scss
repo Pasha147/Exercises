@@ -5,14 +5,30 @@
   overflow-y: scroll;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 00.5rem;
   .item {
+    text-align: center;
     margin: 0.5rem;
     width: 15vw;
     height: 5vh;
     border: green 2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .secondBlock {
+  margin: 00.5rem;
+  position: relative;
   height: 50vh;
   border: 2px solid red;
+  font-size: 1.5rem;
+  text-align: center;
+  .closeBtn {
+    position: absolute;
+    width: 10rem;
+    height: 3rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
 }
