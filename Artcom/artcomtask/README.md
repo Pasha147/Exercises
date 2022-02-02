@@ -14,7 +14,7 @@ ACVK Angular4 Test Task
 You can use the UI components library to improve the visual display of the task result
 
 
-#My comments
+# My comments
 - В четвертом пункте: The table displays the value of the "Name" field for each object. В объектах нет поля "Name". Я отобразил поле "ProductId". Может я что то не то понял, могу переделать.
 - Стили почти не добавлял но учел то что было в задании и немного добавил от себя, я так понял это не главное, почти о них не идет речь.
 - Json загружается локально но с использованием   HttpClient я так понял его в принципе нужно получать с сервера, знаю как это сделать, если что.
