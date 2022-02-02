@@ -1,0 +1,18 @@
+.firstBlock {
+  height: 50vh;
+  border: 2px solid red;
+  display: flex;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+  justify-content: center;
+  .item {
+    margin: 0.5rem;
+    width: 15vw;
+    height: 5vh;
+    border: green 2px solid;
+  }
+}
+.secondBlock {
+  height: 50vh;
+  border: 2px solid red;
+}
