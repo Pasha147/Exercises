@@ -1,6 +1,4 @@
-# Artcomtask
-
-### testTask
+# testTask
 
 ACVK Angular4 Test Task
 
