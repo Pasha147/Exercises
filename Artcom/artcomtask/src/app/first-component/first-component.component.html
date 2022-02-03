@@ -1,13 +1,13 @@
 <div class="firstBlock">
   <div
-    (click)="handleClick(item.ProductId)"
+    (click)="handleClick(i)"
     class="item"
-    *ngFor="let item of this.data"
+    *ngFor="let item of this.data; let i = index"
   >
     <p>ProductId: {{ item.ProductId }}</p>
   </div>
 </div>
-<div class="secondBlock" [hidden]="this.close">
+<div class="secondBlock" *ngIf="!this.close">
   <div *ngIf="this.curItem.length">
     <p *ngFor="let i of this.curItem">{{ i }}</p>
   </div>

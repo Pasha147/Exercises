@@ -20,10 +20,10 @@ export class FirstComponentComponent implements OnInit {
   curItem: string[] = [];
   close = false;
 
-  handleClick(ProductId: number) {
+  handleClick(curInd: number) {
     this.curItem = [];
     this.close = false;
-    let curInd = this.data.findIndex((i) => ProductId === i.ProductId);
+    // let curInd = this.data.findIndex((i) => ProductId === i.ProductId);
     let curIt: any = {};
     curIt = { ...this.data[curInd] };
     let str: string[] = [];
