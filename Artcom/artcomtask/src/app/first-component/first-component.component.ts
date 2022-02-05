@@ -19,22 +19,24 @@ export class FirstComponentComponent implements OnInit {
   data: Item[] = [];
   curItem: string[] = [];
   close = false;
+  curInd = -1;
 
   handleClick(curInd: number) {
     this.curItem = [];
     this.close = false;
+    this.curInd = curInd;
     // let curInd = this.data.findIndex((i) => ProductId === i.ProductId);
-    let curIt: any = {};
-    curIt = { ...this.data[curInd] };
-    let str: string[] = [];
+    // let curIt: any = {};
+    // curIt = { ...this.data[curInd] };
+    // let str: string[] = [];
 
-    for (let key in curIt) {
-      if (curIt[key] === null) {
-        this.curItem.push(`it's unknown`);
-      } else {
-        this.curItem.push(`${key}: ${curIt[key]}`);
-      }
-    }
+    // for (let key in curIt) {
+    //   if (curIt[key] === null) {
+    //     this.curItem.push(`it's unknown`);
+    //   } else {
+    //     this.curItem.push(`${key}: ${curIt[key]}`);
+    //   }
+    // }
   }
 
   closeBtn(): void {
