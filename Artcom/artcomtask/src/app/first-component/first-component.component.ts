@@ -17,12 +17,12 @@ export class FirstComponentComponent implements OnInit {
   }
 
   data: Item[] = [];
-  curItem: string[] = [];
+  // curItem: string[] = [];
   close = false;
   curInd = -1;
 
   handleClick(curInd: number) {
-    this.curItem = [];
+    // this.curItem = [];
     this.close = false;
     this.curInd = curInd;
     // let curInd = this.data.findIndex((i) => ProductId === i.ProductId);
