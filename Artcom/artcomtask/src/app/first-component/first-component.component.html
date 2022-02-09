@@ -9,15 +9,21 @@
 </div>
 <div class="secondBlock" *ngIf="!this.close">
   <div *ngIf="this.curInd >= 0">
-    <div *ngFor="let i of this.data[this.curInd] | keyvalue">
+    <div
+      [ngSwitch]="i.value"
+      *ngFor="let i of this.data[this.curInd] | keyvalue"
+    >
+      <p *ngSwitchCase="i.value === null">it's unknown</p>
+      <p *ngSwitchDefault>{{ i.key }}:{{ i.value }}</p>
+
       <!-- можно так -->
       <!-- <p *ngIf="i.value === null">it's unknown</p>
       <p *ngIf="i.value !== null">{{ i.key }}:{{ i.value }}</p> -->
 
-      <p *ngIf="i.value === null; else p1">it's unknown</p>
+      <!-- <p *ngIf="i.value === null; else p1">it's unknown</p>
       <ng-template #p1>
         <p>{{ i.key }}:{{ i.value }}</p>
-      </ng-template>
+      </ng-template> -->
     </div>
   </div>
   <button class="closeBtn" (click)="closeBtn()">Close</button>
